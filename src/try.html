@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>九宮格</title>
+    <style type="text/css">
+        .container {}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        台股大盤
+        <input type="text" id="inputTW1">
+        <input type="text" id="inputTW2">
+        <input type="text" id="inputTW3">
+        <p></p>
+        納斯達克指數
+        <input type="text" id="inputEX1">
+        <input type="text" id="inputEX2">
+        <input type="text" id="inputEX3">
+        <p></p>
+        日經225
+        <input type="text" id="inputN1">
+        <input type="text" id="inputN2">
+        <input type="text" id="inputN3">
+    </div>
+</body>
+<script>
+    function StockApi(stock,idd) {
+
+        fetch('http://192.192.140.228:8888/'+stock)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.getElementById(idd+"1").value=data.漲跌
+                document.getElementById(idd+"2").value=data.股票成交
+                document.getElementById(idd+"3").value=data.開盤
+            })
+            .catch(error => console.error(error));
+    }
+
+    setInterval(() => {
+        StockApi("TWII","inputTW");
+        StockApi("EIXIC","inputEX");
+        StockApi("N225","inputN");
+    }, 5000);
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+.zup{
+    position: relative;
+    z-index: 123;
+    animation-name: exe;
+    animation-duration: 0.5s;
+    background-color: rgba(250, 242, 242, 0.2);
+}
+@keyframes exe {
+    0%   {top:-100%;}
+    100% {top:0%;}
+  }
+.historydiv{
+  z-index: 123;
+    position: relative;
+    top:10%;
+    animation-name: aaa;
+    animation-duration: 0.5s;
+    background-color: rgba(205, 198, 244, 0.9);
+}
+@keyframes aaa {
+    0%   {width: 0%;height: 0%;}
+    100% {width:940px;height: 500px;}
+  }
