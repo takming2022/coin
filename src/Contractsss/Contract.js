@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 export const op_wallet_address = ""
-export const address = '0x70b879914b229216501f636705f4538f9E2c645e'//合約地址
+export const address = '0x5d4c7A9a9F223064F508E7Fee9f013F38053D483'//合約地址
 
 export const abi =
 [
