@@ -60,7 +60,7 @@ const Coin = ({}) => {
     transform: isHovered3 ? "translateX(0px)" : "translateX(-20px)",
   });
   async function StockApi(stock) {
-    const api = await fetch("http://192.192.140.228:8888/" + stock);
+    const api = await fetch("http://127.0.0.1:8888/" + stock);
     const ans = await api.json();
     if (stock == "EIXIC") {
       setEIXIC(ans.股票成交);
@@ -91,10 +91,11 @@ const Coin = ({}) => {
     wallet_address = account;
 
     let ans = await StockApi(stocks);
-    // console.log(ans);
+    console.log(account);
     const transaction = await contractInstance_singner.finish(parseInt(ans), {
       from: wallet_address,
     });
+
     await transaction
       .wait()
       .then((e) => {
@@ -190,6 +191,7 @@ const Coin = ({}) => {
     var wallet_address = accounts[0];
     let op_wallet = await contractInstance_provider.getDeveloperAddress();
     setuser_addr(wallet_address);
+    console.log(op_wallet);
     if (wallet_address.toString() == op_wallet.toLowerCase()) {
       setop(true);
     } else {
